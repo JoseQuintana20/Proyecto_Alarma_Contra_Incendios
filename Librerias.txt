@@ -1,0 +1,8 @@
+Librerias que instalar:
+
+Whatsapp:
+pip install pywhatkit
+
+Correo:
+pip install python-decouple
+pip install pyautogui
