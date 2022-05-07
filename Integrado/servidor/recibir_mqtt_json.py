@@ -2,6 +2,10 @@ import paho.mqtt.client as mqtt
 import json
 import subprocess
 from guardar_mqtt_db import cargarDB
+from alerta import email 
+from alerta import email 
+from decouple import config
+import smtplib  
 
 
 def on_connect(client, userdata, flags, rc):
@@ -15,6 +19,16 @@ def on_message(client, userdata, msg):
     valores = json.loads(valores_json)
     cargarDB(valores)
     print(valores)
+    if datos_tiempo_real[0][1] > 27:
+        message = '#Advertencia! Posible incendio!#'
+        subject='Advertencia!'
+        message = 'Subject: {}\n\n{}'.format(subject, message)
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login (config('NAME_MAIL'), config('PASSWORD_MAIL'))
+        server.sendmail('Alerta.Temprana.Incendio@gmail.com', 'josequintanadf@unimagdalena.edu.co', message)
+        server.quit()
+        print("Correo enviado exitosamente!")
 
 
 def run():
