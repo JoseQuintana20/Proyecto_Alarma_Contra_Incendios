@@ -7,18 +7,18 @@
             <h3 class="text-center"><strong>Gráficas en tiempo real</strong></h3>
         </div>
         <div class="col-md-6 pt-4 pb-4">
-            <h4 class="text-center">Fecha vs Temperature: °C</h4>
+            <h4 class="text-center">Fecha vs Temperatura °C</h4>
             <div class="card"> 
                 <div class="card-body"> 
-                    <canvas id="numero1" width="500" height="400"></canvas>
+                    <canvas id="temp" width="500" height="400"></canvas>
                 </div> 
             </div> 
         </div>
         <div class="col-md-6 pt-4 pb-4">
-            <h4 class="text-center">Fecha vs Temperature: °F</h4>
+            <h4 class="text-center">Fecha vs Temperatura °F</h4>
             <div class="card"> 
                 <div class="card-body"> 
-                    <canvas id="numero2" width="500" height="400"></canvas>
+                    <canvas id="temp_f" width="500" height="400"></canvas>
                 </div> 
             </div> 
         </div>
@@ -39,7 +39,7 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: "Temperature: °C",
+                    label: "Temperatura °C",
                     backgroundColor: "rgb(132,186,91,0.2)",
                     borderColor: "rgb(62,150,81,1)",
                     data: [],
@@ -93,7 +93,7 @@
             }
 
             config.data.labels.push(data.fecha);
-            config.data.datasets[0].data.push(data.numero1);
+            config.data.datasets[0].data.push(data.temp);
             lineChart.update();
         }
     });
@@ -108,7 +108,7 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: "Temperature: °F",
+                    label: "Temperatura °C",
                     backgroundColor: "rgb(211,94,96,0.2)",
                     borderColor: "rgb(204,37,41,1)",
                     data: [],
@@ -162,7 +162,7 @@
             }
 
             config.data.labels.push(data.fecha);
-            config.data.datasets[0].data.push(data.numero2);
+            config.data.datasets[0].data.push(data.temp_f);
             lineChart.update();
         }
     });

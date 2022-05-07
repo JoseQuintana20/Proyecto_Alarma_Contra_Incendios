@@ -6,7 +6,9 @@ import random
 from machine import Pin
 import dht
 
-sensor = dht.DHT22(Pin(15))
+
+#SSID = "Jose2001"
+#PASSWORD = "alogente"
 
 SSID = "ISSA"
 PASSWORD = "L4cand3lar1a"
@@ -35,13 +37,16 @@ def run():
 
     client.connect()
 
-
+    sensor = dht.DHT22(Pin(15))
+    
     while True:
         sensor.measure()
+        temp = sensor.temperature()
+        temp_f = temp* (9/5)+ 32.0
         variables = {
             "fecha": str(time.localtime()),
-            "temp": sensor.temperature(),
-            #"temp_f": temp* (9/5)+ 32.0,
+            "temp": temp,
+            "temp_f": temp_f,
         }
         payload = ujson.dumps(variables)
         print(payload)
@@ -53,3 +58,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
