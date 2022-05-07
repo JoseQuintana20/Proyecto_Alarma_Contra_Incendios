@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
+
+:root{
+    /* blue colors*/
+    --dark-blue:#282A74;
+    --blue:#3572B9;
+    --light-blue:#57C9E8;
+    /* skin colors*/
+    --dark-skin:#FDCC98;
+    --skin:#FEE6B6;
+    --light-skin:#FDF6DA;
+    --grey:#636262;
+}
+
+* {
+    /* font-family: ; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    outline:none;
+    border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+
+html{
+    font-size: 62.5%;
+    overflow-x:hidden;
+    scroll-padding-top:5.5rem;
+    scroll-behavior:smooth;
+}
+
+
+/* Inicio navbar */
+
+.logo-nav{
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    color: black;
+    text-align:center;
+    position: absolute;
+    padding: 20px 3px;
+}
+
+.nav-center{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: black;
+    display:inline-block;
+    padding: 10px 30px;
+   
+}
+
+.icons-nav{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+.inicio-sesion-nav{
+    padding:8px 0;
+    background-color: #282A74;
+    color: #FDF6DA;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+:hover.inicio-sesion-nav{
+    background-color: #FEE6B6;
+    color: #282A74;
+    font-weight: bold;
+
+}
+
+header{
+    position: fixed;
+    top: 0; left:0; right: 0;
+    background: #fff;
+    padding: 1erm 7%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+
+/* Fin navbar */
+
+/*Responsive navbar*/
+
+/*  media queries  */
+
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 1rem 2rem;
+    }
+}
+
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 1rem 2rem;
+    }
+}
+
+
+@media(max-width:768px){
+ 
+    
+
+}
+
+/* Animacion aspas */
+#aspas{
+    animation:aspas 8s ease infinite;
+    transform-origin:center;
+    transform-box: fill-box ;
+}
+
+@keyframes aspas {
+    form{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+/*HOME-INICIO*/
+
+
+
+body{
+    overflow: hidden;
+  }
+  
+  ::selection{
+    background: var(--dark-blue);
+  }
+  .container-form{
+    position: relative;
+    max-width: 440px;
+    padding: 0 20px;
+    margin: 200px auto;
+  }
+  .wrapper{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+  }
+  .wrapper .title{
+    height: 90px;
+    background: var(--dark-skin);
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper form{
+    padding: 30px 25px 25px 25px;
+  }
+  .wrapper form .row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  .wrapper form .row input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  form .row input:focus{
+    border-color: var(--light-blue);
+    box-shadow: inset 0px 0px 2px 2px var(--blue);
+  }
+  form .row input::placeholder{
+    color: #999;
+  }
+  .wrapper form .row i{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    background: var(--light-blue);
+    border: 1px solid var(--light-blue);
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper form .pass{
+    margin: -8px 0 20px 0;
+  }
+  .wrapper form .pass a{
+    color: var(--light-blue);
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .wrapper form .pass a:hover{
+    text-decoration: underline;
+  }
+  .wrapper form .button input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: var(--light-blue);
+    border: 1px solid  var(--light-blue);
+    cursor: pointer;
+  }
+  form .button input:hover{
+    background: var(--dark-blue);
+  }
+  .wrapper form .signup-link{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+  }
+  .wrapper form .signup-link a{
+    color: var(--light-blue);
+    text-decoration: none;
+  }
+  form .signup-link a:hover{
+    text-decoration: underline;
+  }
+  
+  /*conteiner-form*/
+  .home-logo{
+      display: flex;
+      /*Aqui hubo cambio de center to right*/
+      justify-content: right;
+  }
+  
+  .container-form{
+      position: relative;
+      margin: 20px;
+      padding: 150px 0;
+  }
+  .container-logo{
+      position: relative;
+  }
+
+/*---------------------------------------------------------*/
+/* footer */
+
+/*Home logo*/
+.home-logo{
+    position: relative;
+}
+
+/* waves */
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 200px;
+}
+
+.wave .shape-fill {
+    fill: #0099FF;
+}
+
