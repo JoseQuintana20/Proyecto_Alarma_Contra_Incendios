@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context
 from flaskext.mysql import MySQL
 from decouple import config
+import smtplib  
 import json
 
 
@@ -24,6 +25,18 @@ def _datos(cur):
         {'fecha': datos_tiempo_real[0][0], 'temp': datos_tiempo_real[0][1], 'temp_f': datos_tiempo_real[0][2]})
 
     yield f"data:{json_data}\n\n"
+    if datos_tiempo_real[0][1] > 27:
+        message = '#Advertencia! Posible incendio!#'
+        subject='Advertencia!'
+        message = 'Subject: {}\n\n{}'.format(subject, message)
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login (config('NAME_MAIL'), config('PASSWORD_MAIL'))
+        server.sendmail('Alerta.Temprana.Incendio@gmail.com', 'josequintanadf@unimagdalena.edu.co', message)
+        server.quit()
+        print("Correo enviado exitosamente!")
+
+
 
 
 @app.route('/')
