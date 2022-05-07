@@ -28,7 +28,7 @@ def on_message(client, userdata, msg):
     valores = json.loads(valores_json)
     cargarDB(valores)
     print(valores)
-    if datos_tiempo_real[0][1] > 27:
+    if valores['temp'] > 27:
         email()
         
 
