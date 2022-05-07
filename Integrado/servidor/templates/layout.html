@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Tiempo real<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/index">Tiempo real</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/acumulados">Acumulados</a>
@@ -43,6 +43,14 @@
         </header>
 
         <div class="contenido container pb-4">
+            <div class="name">
+                <div class="img">
+                    <img src="sirena.png" alt="">
+                </div>
+                <div class="content">
+                    <p class="p-1">Monitoreo de Temperatura</p>
+                </div>
+            </div>
             {% block body %}
             {% endblock %}
         </div>
