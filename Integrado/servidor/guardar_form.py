@@ -12,7 +12,7 @@ def conectarDB():
 
     return mydb
 
-@app.route('/ejemplo1', methods=['GET', 'POST'])
+@app.route('/formulario', methods=['GET', 'POST'])
 def ejemplo3():
     if request.method == 'POST':
         email = request.form['correo']
