@@ -10,5 +10,10 @@ if temp > 27:
 else:
     a = 2 
 
+form = {
+    "email": str('jose'),
+    "password": str('1234'),
+}
 
-print(a)
+
+print(form['email'])
