@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response, stream_with_context
 from flaskext.mysql import MySQL
 from decouple import config
+from guardar_form import formDB
 import json
 
 
@@ -32,24 +33,13 @@ def _datos(cur):
 def index():
     return render_template('index.html')
 
-def guardarDB(mydb):
-    cur = mydb.cursor()
-    cur.execute('INSERT INTO datos (email, password) VALUES ("{email}",  "{password}")'.format(
-        email=email, password=password))
-    cur.close()
-
-def formDB():
-    mydb = conectarDB()
-    guardarDB(mydb)
-
 @app.route('/formulario', methods=['GET', 'POST'])
-def ejemplo3():
+def formulario():
     if request.method == 'POST':
         email = request.form['correo']
         password = request.form['contraseña']
+        formDB()
 
-        return render_template('visualizar.html', email=email, password=password)
-    formDB()
     return render_template('formulario.html')
 
 
