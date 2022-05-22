@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import json
 import subprocess
 from guardar_mqtt_db import cargarDB
+from guardar_form import formDB
 from decouple import config
 import smtplib 
 
@@ -28,6 +29,7 @@ def on_message(client, userdata, msg):
     valores = json.loads(valores_json)
     cargarDB(valores)
     print(valores)
+    formDB()
     if valores['temp'] > 27:
         email()
         

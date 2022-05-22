@@ -37,6 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/acumulados">Acumulados</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ejemplo1">Registrarse</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -49,9 +52,9 @@
                 </div>
                 <div class="content">
                     <p class="p-1">Monitoreo de Temperatura</p><br>
-                    <table class="tabla">
-                        <td>$temp</td>
-                    </table>
+                    <div class="card-body"> 
+                        <canvas id="temp" width="500" height="400"></canvas>
+                    </div> 
                 </div>
             </div>
             {% block body %}
