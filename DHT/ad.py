@@ -10,5 +10,14 @@ if temp > 27:
 else:
     a = 2 
 
+form = {
+    "email": str('jose'),
+    "password": str('1234'),
+}
+#print(form['email'])
 
-print(a)
+def calculo():
+    return 1,2,3
+
+a,b,c=calculo()
+print(b)
