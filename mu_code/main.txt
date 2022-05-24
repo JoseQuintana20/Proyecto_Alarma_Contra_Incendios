@@ -1,0 +1,66 @@
+from umqttsimple import MQTTClient
+import network
+import ujson
+import time
+from machine import Pin
+import dht
+
+SSID = "ISSA"
+PASSWORD = "L4cand3lar1a"
+
+
+
+def do_connect(SSID, PASSWORD):
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+
+    if not wlan.isconnected():
+        print("connecting to network...")
+        wlan.connect(SSID, PASSWORD)
+        while not wlan.isconnected():
+            pass
+    print("network config:", wlan.ifconfig())
+
+
+def run():
+    do_connect(SSID, PASSWORD)
+
+    SERVER = "54.94.232.197"
+    client = MQTTClient("test", SERVER)
+
+    topic = "test"
+
+    client.connect()
+
+    sensor = dht.DHT22(Pin(15))
+    p2 = Pin(2, Pin.OUT)
+    p4 = Pin(4, Pin.OUT)
+
+    while True:
+        sensor.measure()
+        temp = sensor.temperature()
+        temp_f = temp*(9/5)+32.0
+        if temp > 30:
+            p2.on()
+            p4.on()
+        else:
+            p2.off()
+            p4.off()
+
+        variables = {
+            "fecha": time.localtime(),
+            "temp": temp,
+            "temp_f": temp_f,
+        }
+        fecha = variables['fecha']
+        variables['fecha'] = '{}/{}/{}'.format(fecha[2]+22,fecha[1]+4,fecha[0]+22)
+        payload = ujson.dumps(variables)
+        print(payload)
+        client.publish(topic, payload)
+        time.sleep(2)
+
+    client.disconnect()
+
+
+if __name__ == "__main__":
+    run()
