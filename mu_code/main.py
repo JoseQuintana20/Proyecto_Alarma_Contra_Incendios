@@ -5,8 +5,8 @@ import time
 from machine import Pin
 import dht
 
-SSID = "ISSA"
-PASSWORD = "L4cand3lar1a"
+SSID = "Jose2001"
+PASSWORD = "alogente"
 
 
 
